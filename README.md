@@ -37,9 +37,15 @@ Prerequisites:
 * Edit the `workloads/canary.yaml` and change the `podinfo.example.com` with your own domain
 * Push the changes to your branch
 * Go to Weave Cloud Deploy setup page and add this repo with your own branch
+* Go to Weave Cloud web hooks setup page and add this repo
 
 Canary demo:
 
 * Open the podinfo URL and it should display the `1.3.0` version
 * In Weave Cloud Deploy do a manual release of `quay.io/stefanprodan/podinfo:1.3.1` 
 * The podinfo UI will automatically refresh and display the `1.3.1` version
+
+Automated demo:
+
+* In Weave Cloud Deploy enable automation for `test:deployment/podinfo`
+* Create a Flux filter of type semver `~1.3`
