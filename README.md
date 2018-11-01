@@ -2,11 +2,9 @@
 
 Prerequisites:
 
-* GKE > 1.10.0 
-* CloudDNS
-* Istio > 1.0.0
+* GKE and CloudDNS
 * Helm and Tiller
-* Weave Cloud agents
+* Istio
 
 Setup Istio with Let's Encrypt wildcard certs on Google Cloud by following this [guide](https://github.com/stefanprodan/istio-gke).
 
@@ -42,6 +40,12 @@ Before installing Flux scale down the weave agent anf flux deployments that are 
 ```bash
 kubectl -n weave scale --replicas=0 deployment/weave-agent
 kubectl -n weave scale --replicas=0 deployment/weave-flux-agent
+```
+
+Add the weaveworks repo:
+
+```bash
+helm repo add weaveworks https://weaveworks.github.io/flux
 ```
 
 Install Flux using Helm (make sure to use a unique Flux git tag):
