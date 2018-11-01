@@ -57,14 +57,11 @@ export WC_TOKEN=your-weave-token
 
 helm upgrade -i flux weaveworks/flux \
 --namespace flux \
+--set helmOperator.create=true \
 --set rbac.create=true \
---set git.path=cluster \
---set git.pollInterval=2m \
 --set registry.pollInterval=30s \
 --set registry.cacheExpiry=24h \
---set helmOperator.create=true \
---set helmOperator.createCRD=false \
---set helmOperator.chartsSyncInterval=2m \
+--set git.pollInterval=2m \
 --set git.url=ssh://git@github.com/weaveworks-experiments/istio-demo \
 --set git.branch=${GIT_BRANCH} \
 --set git.label=${GIT_TAG} \
