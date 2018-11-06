@@ -23,7 +23,7 @@ helm upgrade -i flagger flagger/flagger \
 --set metricsServer=http://prometheus.istio-system:9090 \
 --set controlLoopInterval=1m
 
-helm upgrade -i flagger-grafana flagger/flagger-grafana \
+helm upgrade -i flagger-grafana flagger/grafana \
 --namespace=istio-system
 ```
 
